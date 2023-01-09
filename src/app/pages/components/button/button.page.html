@@ -1,0 +1,177 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>button</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div>
+    <!-- default sem valor atribuido-->
+    <ion-button (click)="consoleLog()">Default-click</ion-button>
+
+    <ion-button href="https://google.com.br" color="primary">HREF - google</ion-button>
+
+  </div>
+
+  <div>
+
+    <ion-button size="small" color="dark">Dark button small</ion-button>
+    <ion-button color="success">Success button</ion-button>
+    <ion-button size="large" color="warning">Warning button large</ion-button>
+
+  </div>
+
+  <div style="display:flex;flex-direction:column;padding:16px;max-width:350px;">
+
+    <ion-button expand="block" color="success">Success button</ion-button>
+    <ion-button expand="full" color="warning">Warning button</ion-button>
+    <ion-button shape="round" color="tertiary">Tertiary Round button</ion-button>
+    <ion-button fill="outline" color="tertiary">Tertiary Outline button</ion-button>
+    <ion-button fill="outline" shape="round" color="warning">Warning outline Round button</ion-button>
+
+  </div>
+
+  <div>
+
+    <ion-button>
+      <ion-icon slot="start" name="start"></ion-icon>
+      Left Icon
+    </ion-button>
+
+    <ion-button>
+      Right Icon
+      <ion-icon slot="end" name="star"></ion-icon>
+    </ion-button>
+
+    <ion-button>
+      <ion-icon slot="icon-only" name="star"></ion-icon>
+    </ion-button>
+
+  </div>
+
+  <br>
+  <br>
+
+  <ion-item-divider color="warning">
+    <ion-label>
+      Alert
+    </ion-label>
+  </ion-item-divider>
+
+  <div>
+    <ion-button (click)="alertDefault()">Alert Default</ion-button>
+    <br>
+    <ion-button (click)="multipleButton()">Alert MultipleButton OR Confirm</ion-button>
+    <p>Message: {{ handlerMessage }}</p>
+    <p>Obtido o Role do onDidDismiss: {{ roleMessage }}</p>
+    <br>
+    <br>
+    <ion-button (click)="promptOrLogin()">Alert Prompt Or Login</ion-button>
+  </div>
+
+  <ion-item-divider color="danger">
+    <ion-label>
+      Accordion 
+    </ion-label>
+  </ion-item-divider>
+
+  <ion-accordion-group>
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label>Primeiro</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        Primeiro
+      </div>
+    </ion-accordion>
+    <ion-accordion value="second">
+      <ion-item slot="header" color="light">
+        <ion-label>Segundo</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        Segundo
+      </div>
+    </ion-accordion>
+    <ion-accordion value="third">
+      <ion-item slot="header" color="light">
+        <ion-label>Terceiro</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        Terceiro
+      </div>
+    </ion-accordion>
+    <ion-accordion value="third" [disabled]="true">
+      <ion-item slot="header" color="light">
+        <ion-label>Quarto (disabled)</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        Quarto
+      </div>
+    </ion-accordion>
+    <ion-accordion value="third" [readonly]="true">
+      <ion-item slot="header" color="light">
+        <ion-label>Quinto (readonly)</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        Quinto
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+  
+
+  <ion-item-divider color="dark">
+    <ion-label>
+      Badges 
+    </ion-label>
+  </ion-item-divider>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Followers</ion-label>
+      <ion-badge color="primary">22k</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Likes</ion-label>
+      <ion-badge color="secondary">118k</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Stars</ion-label>
+      <ion-badge color="tertiary">34k</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Completed</ion-label>
+      <ion-badge color="success">80</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Warnings</ion-label>
+      <ion-badge color="warning">70</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Notifications</ion-label>
+      <ion-badge color="danger">1000</ion-badge>
+    </ion-item>
+    <ion-item class="custom">
+      <ion-label>Custom</ion-label>
+      <ion-badge>2000</ion-badge>
+    </ion-item>
+  </ion-list>
+
+  <br>
+  <br>
+
+  <ion-item-divider color="primary">
+    <ion-label>
+      Action sheet examplos 
+    </ion-label>
+  </ion-item-divider>
+
+  <br>
+  <br>
+  <ion-button expand="block" color="danger" (click)="actionSheet()">Action</ion-button>
+
+
+</ion-content>

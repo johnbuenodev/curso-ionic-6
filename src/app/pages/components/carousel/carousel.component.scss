@@ -1,0 +1,145 @@
+/* .product {
+    padding: 20px 0px;
+}
+
+.slider-wrap {
+ position: relative;
+ display: flex;
+ flex-direction: row;
+ overflow: hidden;
+ scroll-margin-inline-start: 0;
+ height: 150px;
+ width: 100%;
+}
+
+.slider-main {
+ position: absolute;
+ width: 100%;
+ overflow-x: scroll;
+}
+
+.item {
+    display: inline-block;
+    width: 350px;
+    height: 150px;
+    background: purple;
+    position: relative;
+    margin: 0 12px;
+    border-radius: 12px;
+}
+
+.item:first-child {
+    margin: 0 12px 0 24px;
+}
+
+.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFF;
+    font-weight: bolder;
+}
+
+#navBar {
+    height: 55px;
+    width: 80px;
+    overflow-x: scroll;
+    overflow-y:hidden;
+    white-space: nowrap;
+}
+
+#navBar div {
+    display: inline-block;
+}   */
+
+h2 {
+    color: white;
+  }
+
+  .scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+    .card {
+      display: inline-block;
+    }
+  }
+
+  .scrolling-wrapper-flexbox {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+
+    .card {
+      flex: 0 0 auto;
+      margin-right: 3px;
+    }
+  }
+
+  .card {
+    border: 2px solid orange;
+    width: 350px;
+    height: 200px; /* 150px */
+    background: rgb(61, 151, 179);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    position: relative;
+  }
+
+  .scrolling-wrapper, .scrolling-wrapper-flexbox {
+    height: 210px; /* 160px */
+    margin-bottom: 20px;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+
+  .card-info {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 128px;
+  }
+
+  .card-info div.info-transparent {
+    /*
+    padding: 8px;
+    width: auto;
+    background-color: #363636;
+    opacity: .2;
+    //margin-right: 12px; */
+
+    padding: 8px;
+    /* text-align: center; */
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* align-content: flex-start; */
+    /* text-align: center; */
+    width: auto;
+    //background-color: #363636;
+    background: rgba(101, 100, 102, 0.1);
+    //opacity: 0.2;
+  }
+
+  .card-info div.info-white {
+    padding: 8px;
+    width: auto;
+    background-color: #FFf;
+    //margin-right: 12px;
+  }
+
+  .card-info div.info-transparent .info-text {
+    color: black;
+  }
+
+  .card-info div.info-white .info-text {
+    color: black;
+  }
+

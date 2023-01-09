@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item-divider color="success">
+    <ion-label>
+      CheckBox
+    </ion-label>
+  </ion-item-divider>
+
+  <ion-item *ngFor="let option of options">
+    <ion-label>{{option.value}}</ion-label>
+    <!-- [(ngModel)]="option.isChecked" checked={{option.isChecked}} -->
+    <!-- <ion-checkbox value={{option.value}} checked={{option.isChecked}} color="success" (ionChange)="ionChangeFunc($event)"></ion-checkbox> -->
+
+    <!-- Esse exemplo funciona melhor para pegar o resultado e renderizar corretamente os dados -->
+    <ion-checkbox [(ngModel)]="option.isChecked" color="success" (click)="getElement(option)"></ion-checkbox>
+
+  </ion-item>
+
+  <ion-item-divider color="dark">
+    <ion-label>
+      CheckBox with disabled
+    </ion-label>
+  </ion-item-divider>
+
+  <ion-item *ngFor="let option2 of options2">
+    <ion-label>{{option2.value}}</ion-label>
+    <ion-checkbox [(ngModel)]="option2.isChecked" color="dark" (click)="getElement2(option2)"
+      disabled="{{option2.isDisabled}}"></ion-checkbox>
+  </ion-item>
+
+  <ion-item-divider color="danger">
+    <ion-label>
+      CheckBox with Select All
+    </ion-label>
+  </ion-item-divider>
+
+  <ion-item>
+    <div [ngClass]="{'grey':selectAllValue}" slot="end">Select All</div>
+    <ion-checkbox [(ngModel)]="selectAllValue" slot="end" color="success" checked={{selectAllValue}}
+      (click)="selectAll()"></ion-checkbox>
+  </ion-item>
+
+  <ion-item *ngFor="let option3 of options3">
+    <ion-label>{{option3.value}}</ion-label>
+    <ion-checkbox [(ngModel)]="option3.isChecked" slot="end" color="danger"
+      (click)="selectElement(option3)"></ion-checkbox>
+  </ion-item>
+
+  <br>
+  <br>
+
+  <ion-item-divider color="primary">
+    <ion-label>
+      Search
+    </ion-label>
+  </ion-item-divider>
+
+  <div>
+    <input type="text" [(ngModel)]="searchTerm">
+    <div *ngFor="let item of items |filter:searchTerm">
+      <p>
+        {{item.name}}
+      </p>
+    </div>
+
+  </div>
+
+  <br>
+  <br>
+  <div>Valor nome e busca:</div>
+  {{chosenName}}
+  {{searchTerm}}
+  <br>
+  <br>
+
+  <!--
+  <ion-searchbar placeholder="Informe nome" [(ngModel)]="searchTerm" showCancelButton="focus"
+    animated="true"></ion-searchbar> -->
+  <ion-searchbar placeholder="Informe nome" [(ngModel)]="searchTerm" show-clear-button="never"
+    animated="true"></ion-searchbar>
+  <ion-list *ngIf="!chosenName">
+    <ion-item *ngFor="let item of items |filter:searchTerm" (click)="addValue(item)">
+      <ion-label>{{item.name}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="chosenName" button detail="true">
+    <ion-item>
+      <ion-label>Escolhido: {{chosenName}}</ion-label>
+      <ion-icon name="trash-outline" slot="end" (click)="resetName()"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
